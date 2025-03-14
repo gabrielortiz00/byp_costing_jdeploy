@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="960" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.github.gabrielortiz00.byp_costing_jdeploy.controllers.NewProjectController">
+
+    <Label layoutX="360" layoutY="20" style="-fx-font-size: 24px; -fx-font-weight: bold;"
+           text="BYP Cost Analysis - New Project"/>
+
+
+    <GridPane hgap="20" layoutX="50.0" layoutY="50.0" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="150"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="250"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100"/>
+        </columnConstraints>
+
+
+        <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Project Information" GridPane.columnSpan="2"
+               GridPane.rowIndex="0"/>
+
+        <Label text="Project Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtProjectName" promptText="Enter project name" GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+        <Label text="Product Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtProductName" promptText="Enter product name" GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"/>
+
+
+        <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Input Parameters" GridPane.columnSpan="2"
+               GridPane.rowIndex="3"/>
+
+        <Label text="Unit Cost (C) USD:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextField fx:id="txtUnitCost" promptText="e.g. 10.50" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Label text="Incremental Cost (I) USD:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <TextField fx:id="txtIncrementalCost" promptText="e.g. 2.75" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+        <Label text="Shipping Cost (L) USD:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <TextField fx:id="txtShippingCost" promptText="e.g. 3000.00" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+        <Label text="Units Per Container (Q):" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <TextField fx:id="txtUnitsPerContainer" promptText="e.g. 1000" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+        <Label text="Tax Rate (T):" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <TextField fx:id="txtTaxRate" promptText="e.g. 0.16 for 16%" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+        <Label text="Exchange Rate (R) MXN/USD:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <TextField fx:id="txtExchangeRate" promptText="e.g. 20.15" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnRefreshRate" onAction="#handleRefreshRate"
+                    style="-fx-background-color: #e63946; -fx-text-fill: white;" text="Refresh Rate"/>
+        </HBox>
+
+        <Label text="Exchange Buffer (B):" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <TextField fx:id="txtExchangeBuffer" promptText="e.g. 0.05 for 5%" GridPane.columnIndex="1"
+                   GridPane.rowIndex="10"/>
+
+
+        <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Calculation Type" GridPane.columnSpan="2"
+               GridPane.rowIndex="11"/>
+
+        <VBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="12">
+            <RadioButton fx:id="radioMargin" selected="true" text="Calculate Price from Margin (M)"/>
+            <RadioButton fx:id="radioPrice" text="Calculate Margin from Price (P)"/>
+        </VBox>
+
+        <Label fx:id="lblMarginOrPrice" text="Profit Margin (M):" GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+        <TextField fx:id="txtMarginOrPrice" promptText="e.g. 0.20 for 20%" GridPane.columnIndex="1"
+                   GridPane.rowIndex="13"/>
+
+        <padding>
+            <Insets bottom="30.0"/>
+        </padding>
+    </GridPane>
+
+
+    <HBox alignment="CENTER" layoutX="269.0" layoutY="509.0" spacing="30">
+        <Button fx:id="btnCalculate" onAction="#handleCalculate" prefHeight="40" prefWidth="110.0"
+                style="-fx-background-color: #e63946; -fx-text-fill: white; -fx-font-size: 14px;" text="Compute">
+            <font>
+                <Font name="System Bold" size="13.0"/>
+            </font>
+        </Button>
+
+        <Button fx:id="btnBack" onAction="#handleBack" prefHeight="40" prefWidth="110.0"
+                style="-fx-background-color: #e63946; -fx-text-fill: white; -fx-font-size: 14px;" text="Back"/>
+    </HBox>
+</AnchorPane>
+

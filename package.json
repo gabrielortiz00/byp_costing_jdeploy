@@ -13,14 +13,14 @@
     "javaVersion": "21",
     "jar": "target/byp_costing_jdeploy-1.0.0.jar",
     "javafx": true,
-    "title": "Byp Costing Jdeploy"
+    "title": "BYPCosting"
   },
   "dependencies": {
     "njre": "^0.2.0",
     "shelljs": "^0.8.4"
   },
   "license": "ISC",
-  "name": "sample2",
+  "name": "byp_costing_jdeploy",
   "files": [
     "jdeploy-bundle"
   ],
